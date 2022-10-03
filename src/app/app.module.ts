@@ -1,3 +1,4 @@
+import { SimpleIdFormReactComponent } from './forms/SimpleIdFormReactive/simple-id-form-react.component';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
   declarations: [
     AppComponent,
     SimpleIdFormComponent,
+    SimpleIdFormReactComponent,
   ],
   imports: [
     BrowserModule,

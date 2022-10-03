@@ -16,6 +16,14 @@ export class SimpleIdFormReactComponent {
                 this.myValidator,
             ])],
         });
+
+        // watch the way both the control & form change
+        this.myForm.valueChanges.subscribe((form) => {
+            console.log('Form changed:', form);
+        })
+        this.myForm.controls['id'].valueChanges.subscribe((value) => {
+            console.log('Id changed:', this.myForm.controls['id'].value);
+        })
     }
 
     onSubmit(value: any) {

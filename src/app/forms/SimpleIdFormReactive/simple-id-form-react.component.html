@@ -1,0 +1,22 @@
+<div>
+    <h2>Demo SimpleIdForm (reactive)</h2>
+    <form [formGroup]="myForm"
+          (ngSubmit)="onSubmit(myForm.value)">
+        <div class="field">
+            <label for="idInputReactive">Id:</label>
+            <input  [formControl]="myForm.controls['id']"
+                    type="text"
+                    id="idInputReactive"
+                    name="idInputReactive"
+                    placeholder="id"
+                    ngModel>
+        </div>
+
+        <div *ngIf="!myForm.valid">
+            Form-ul nu e valid!
+        </div>
+
+        <button 
+                type="submit">Submit</button>
+    </form>
+</div>

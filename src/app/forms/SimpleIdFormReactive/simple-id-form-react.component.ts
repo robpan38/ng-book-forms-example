@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from "@angular/forms";
 
 @Component({
     selector: 'simple-id-form-react',
@@ -11,11 +11,25 @@ export class SimpleIdFormReactComponent {
 
     constructor(private _fb: FormBuilder) {
         this.myForm = _fb.group({
-            'id': ['ceva!!', Validators.required],
+            'id': ['ceva!!', Validators.compose([
+                Validators.required,
+                this.myValidator,
+            ])],
         });
     }
 
     onSubmit(value: any) {
         console.log(value);
+    }
+
+    /* valoarea trebuie sa inceapa cu matei */
+    myValidator(control: AbstractControl): ValidationErrors | null {
+        if ((control.value as string).startsWith('matei')) {
+            return null;
+        }
+
+        return {
+            mateiError: true
+        };
     }
 }
